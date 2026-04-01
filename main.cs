@@ -15,13 +15,17 @@ namespace StudentHelloWorld
             return (char)(encryptedValue - shift);
         }
 
-        // --- NEW: Recursive Fibonacci function ---
-        // Calculates the n-th Fibonacci number. Sequence starts with 1, 1...
+        // --- UPDATED: Recursive Fibonacci function ---
+        // Calculates the n-th Fibonacci number. Sequence starts with 0, 1...
         static int Fib(int n) {
-            if (n == 1 || n == 2) {
+            // New base cases: 1st number is 0, 2nd number is 1
+            if (n == 1) {
+                return 0;
+            }
+            if (n == 2) {
                 return 1;
             }    
-            // Recursive step: sum of the two preceding numbers
+            // Recursive step remains the same
             return Fib(n - 1) + Fib(n - 2);
         }
         static void Main(string[] args) {
