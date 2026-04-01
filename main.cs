@@ -15,19 +15,24 @@ namespace StudentHelloWorld
             return (char)(encryptedValue - shift);
         }
 
-        // --- UPDATED: Recursive Fibonacci function ---
-        // Calculates the n-th Fibonacci number. Sequence starts with 0, 1...
-        static int Fib(int n) {
-            // New base cases: 1st number is 0, 2nd number is 1
-            if (n == 1) {
-                return 0;
+        // --- UPDATED: Iterative Fibonacci function ---
+        // Calculates and prints the first n numbers of the sequence
+        static void Fib(int n) {
+            if (n <= 0) return;
+
+            int a = 0;
+            int b = 1;
+
+            for (int i = 0; i < n; i++) {
+                
+                Console.WriteLine(a);
+                
+                int next = a + b;
+                a = b;
+                b = next;
             }
-            if (n == 2) {
-                return 1;
-            }    
-            // Recursive step remains the same
-            return Fib(n - 1) + Fib(n - 2);
         }
+
         static void Main(string[] args) {
 
             // --- Part 1: Hello World ---
@@ -52,8 +57,7 @@ namespace StudentHelloWorld
             Console.Write("Enter n to calculate Fibonacci: ");
             
             int n = Convert.ToInt32(Console.ReadLine());
-            int fibResult = Fib(n);
-            Console.WriteLine($"fib({n}) = {fibResult}");
+            Fib(n);
          }
     }
 }
