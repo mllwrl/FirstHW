@@ -15,7 +15,18 @@ namespace StudentHelloWorld
             return (char)(encryptedValue - shift);
         }
 
-    static void Main(string[] args) {
+        // --- NEW: Recursive Fibonacci function ---
+        // Calculates the n-th Fibonacci number. Sequence starts with 1, 1...
+        static int Fib(int n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }    
+            // Recursive step: sum of the two preceding numbers
+            return Fib(n - 1) + Fib(n - 2);
+        }
+        static void Main(string[] args) {
+
+            // --- Part 1: Hello World ---
             int[] data = GetEncryptedData();
             int shiftKey = 5;
 
@@ -31,7 +42,14 @@ namespace StudentHelloWorld
                  Console.Write(letter);
             }
 
-            Console.WriteLine();
+            Console.WriteLine("\nNext Step: Fibonacci");
+
+            // --- Part 2: Fibonacci ---
+            Console.Write("Enter n to calculate Fibonacci: ");
+            
+            int n = Convert.ToInt32(Console.ReadLine());
+            int fibResult = Fib(n);
+            Console.WriteLine($"fib({n}) = {fibResult}");
          }
     }
 }
