@@ -1,0 +1,6 @@
+bin/
+obj/
+
+# SSH-keys
+key
+key.pub
